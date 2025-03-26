@@ -1,0 +1,197 @@
+.dog-card {
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal) ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: rgba(37, 37, 37, 0.37);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(9.6px);
+  border: 1px solid rgba(103, 98, 98, 0.3);
+}
+
+.dog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.dog-card.loading {
+  padding: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-lighter);
+  font-size: var(--text-sm);
+  min-height: 300px;
+}
+
+.dog-card-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.dog-card-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    transparent 30%
+  );
+  pointer-events: none;
+}
+
+.dog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal) ease;
+}
+
+.dog-card:hover .dog-card-image img {
+  transform: scale(1.05);
+}
+
+.favorite-btn {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background-color: var(--background-color);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: var(--text-lg);
+  transition: all var(--transition-fast) ease;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+}
+
+.favorite-btn:hover {
+  background-color: var(--background-color);
+  transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+  background-color: rgba(239, 68, 68, 0.9);
+}
+
+.dog-card-info {
+  padding: var(--spacing-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.dog-card-info h3 {
+  margin: 0;
+  font-size: var(--text-xl);
+  color: var(--text-color);
+  font-weight: var(--font-semibold);
+  line-height: 1.2;
+}
+
+.dog-card-info .breed {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--primary-color);
+  font-weight: var(--font-medium);
+}
+
+.dog-card-info .age {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--background-color);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--primary-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  width: fit-content;
+}
+
+.dog-card-info .age::before {
+  content: "🐾";
+  font-size: var(--text-base);
+}
+
+.dog-card-info .location {
+  margin: var(--spacing-xs) 0 0;
+  font-size: var(--text-xs);
+  color: var(--background-color);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
+  background-color: var(--primary-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  width: fit-content;
+}
+
+.dog-card-info .location::before {
+  content: "📍";
+  font-size: var(--text-sm);
+}
+
+/* Card badge for special attributes */
+.dog-card-badge {
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  background-color: var(--primary-color);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  z-index: 10;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Loading skeleton animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.dog-card.skeleton {
+  pointer-events: none;
+}
+
+.dog-card.skeleton .dog-card-image {
+  background-color: var(--border-color);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.dog-card.skeleton .dog-card-info h3,
+.dog-card.skeleton .dog-card-info .breed,
+.dog-card.skeleton .dog-card-info .age,
+.dog-card.skeleton .dog-card-info .location {
+  height: 1em;
+  background-color: var(--border-color);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-sm);
+  animation: pulse 1.5s ease-in-out infinite;
+}

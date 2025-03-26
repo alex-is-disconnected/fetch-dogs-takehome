@@ -1,0 +1,208 @@
+.match-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  padding: var(--spacing-lg);
+
+  background-image: radial-gradient(#a1a183 0.9px, #10100e 0.9px);
+  background-size: 18px 18px;
+}
+
+.back-btn {
+  padding: 8px 16px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.match-content {
+  flex: 1;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.favorites-section {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+  background: rgba(37, 37, 37, 0.37);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(9.6px);
+  border: 1px solid rgba(103, 98, 98, 0.3);
+}
+
+.favorites-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.favorite-dog {
+  text-align: center;
+}
+
+.favorite-dog img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.favorite-dog p {
+  margin: 0;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.match-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.match-btn,
+.start-over-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.match-btn {
+  background-color: var(--info-color);
+  color: white;
+  flex: 1;
+}
+
+.match-btn:hover {
+  background-color: var(--info-color);
+}
+
+.match-btn:disabled {
+  background-color: var(--info-color);
+  cursor: not-allowed;
+}
+
+.start-over-btn {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.start-over-btn:hover {
+  background-color: var(--background-color);
+}
+
+.match-result {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  background: rgba(37, 37, 37, 0.37);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(9.6px);
+  border: 1px solid rgba(103, 98, 98, 0.3);
+}
+
+.match-result h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.matched-dog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .matched-dog {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.matched-dog-image {
+  flex-shrink: 0;
+}
+
+.matched-dog-image img {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.matched-dog-info {
+  flex: 1;
+}
+
+.matched-dog-info h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.matched-dog-info p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.matched-dog-info .breed {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.adoption-info {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.adopt-btn {
+  margin-top: 15px;
+  padding: 12px 24px;
+  background-color: var(--info-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.adopt-btn:hover {
+  background-color: var(--info-color);
+}
